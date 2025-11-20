@@ -22,7 +22,7 @@ if (isset($db)) {
     $statement = $db->query($sql);
 }
 echo "<h2>Recent Events:</h2>";
-echo "<div class='options'><table>";
+echo "<div><table>";
 echo "<tr><td>MAC Address</td><td>Time</td><td>Location</td><td>Name</td><td>Event ID</td></tr>";
 while ($row = $statement->fetch()) {
     echo "<tr>
