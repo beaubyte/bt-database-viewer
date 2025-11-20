@@ -7,7 +7,7 @@
 
 try {
     // Create a PDO instance
-    $db = new PDO("postgresql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);
+    $db = new PDO("pgsql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo "Failed to connect to database: " . $e->getMessage();

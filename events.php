@@ -1,35 +1,32 @@
 <?php
+global $db;
 require_once 'db_connect.php';
-// $db is available as a PDO instance connected to MySQL
-require_once 'globals.php';
 ?>
 <!doctype html>
 <html lang=en>
 <head>
     <meta charset=utf-8>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
-// code from timesavers that i'm gonna adapt:
-<h1><strong>Database Contents</strong></h1>
+<h1><strong>Bluetooth Investigator:</strong></h1>
 <?php
-$sql = "select * from Stock";
+$sql = "select * from bluetooth.device_events";
 $statement = $db->query($sql); // fetches all content in Stock and displays on HTML table
-echo "<h2>Available Stock:</h2>";
+echo "<h2>Recent Events:</h2>";
 echo "<div class='options'><table>";
-echo "<tr><td>ID</td><td>Time</td><td>Duration</td><td>Region</td><td>Flexibility</td><td>Price</td></tr>";
+echo "<tr><td>MAC Address</td><td>Time</td><td>Location</td><td>Name</td><td>Event ID</td></tr>";
 while ($row = $statement->fetch()) {
     echo "<tr>
-                <td>$row[ID]</a></td>
-                <td>$row[Start]</td>
-                <td>$row[Duration] min</td>
-                <td>$row[Region]</td>
-                <td>$row[Flex] min</td>
-                <td>$row[Price]</td>
+                <td>$row[macaddress]</a></td>
+                <td>$row[time]</td>
+                <td>$row[location]</td>
+                <td>$row[name]</td>
+                <td>$row[eventid]</td>
                 </tr>
                 ";
 }
+/*
 echo "</table></div>";
 $sql = "select * from Requests";
 $statement = $db->query($sql); // fetches all content in Requests and displays on HTML table
@@ -46,6 +43,7 @@ while ($row = $statement->fetch()) {
                 </tr>
                 ";
 }
+
 echo "</table></div>";
 $sql = "select * from Payments";
 $statement = $db->query($sql); // fetches all content in Payments and displays on HTML table
@@ -62,6 +60,7 @@ while ($row = $statement->fetch()) {
                 ";
 }
 echo "</table></div>";
+*/
 ?>
 </body>
 </html>
