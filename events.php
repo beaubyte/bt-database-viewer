@@ -9,13 +9,28 @@ require_once 'db_connect.php';
 </head>
 <body>
 <h1><strong>Bluetooth Investigator:</strong></h1>
-    <h3>Search</h3>
+    <h3>Search for Person</h3>
     <form action="search.php" method="post">
         <p>
-            <label for="name">Name</label>
+            <label for="name">Name: </label>
             <input type="text" name="name">
         </p>
         <input type="submit" class="submit">
+    </form>
+    <h3>Add Device</h3>
+    <form action="add_device.php" method="post">
+        <p>
+            <label for="personid">Person ID: </label>
+            <input type="text" name="personid">
+            <br>
+            <label for="macaddress">Mac Address: </label>
+            <input type="text" name="macaddress">
+            <br>
+            <label for="friendlyname">Device Name: </label>
+            <input type="text" name="friendlyname">
+        </p>
+        <input type="submit" class="submit">
+    </form>
 <?php
 $sql = "select * from bluetooth.device_events";
 if (isset($db)) {
