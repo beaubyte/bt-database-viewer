@@ -16,6 +16,7 @@ require_once 'db_connect.php';
         $friendlyname = $_POST['friendlyname'];
         $sql = "insert into bluetooth.findable (personid, macaddress, friendlyname) values ('$personid', '$macaddress', '$friendlyname')";
         if (isset($db)) {
+            $statement = $db->query($sql);
             echo "Device Added!";
         }
     } else {

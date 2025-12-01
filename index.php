@@ -6,6 +6,7 @@ require_once 'db_connect.php';
 <head>
     <meta charset=utf-8>
     <link rel="stylesheet" href="styles.css">
+    <title>Bluetooth Investigator</title>
 </head>
 <body>
 <h1><strong>Bluetooth Investigator:</strong></h1>
@@ -31,8 +32,10 @@ require_once 'db_connect.php';
         </p>
         <input type="submit" class="submit">
     </form>
+<p><a href="listpeople.php">List People</a></p>
+<p><a href="clearevents.php">Clear Events</a></p>
 <?php
-$sql = "select * from bluetooth.device_events";
+$sql = "select * from bluetooth.device_events order by eventid desc limit 100;";
 if (isset($db)) {
     $statement = $db->query($sql);
 }

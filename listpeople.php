@@ -6,16 +6,23 @@ require_once 'db_connect.php';
 <head>
     <meta charset=utf-8>
     <link rel="stylesheet" href="styles.css">
+    <title>People List</title>
 </head>
 <body>
+<h3>Add New Person:</h3>
+<form action="add_person.php" method="post">
+    <p>
+        <label for="name">Name: </label>
+        <input type="text" name="name">
+    </p>
+    <input type="submit" class="submit">
+</form>
 <h1>Search:</h1>
 <?php
-if (isset($_POST['user'])){
-    $user = $_POST['user']; // gets data from post and assigns to variables
     $sql = "select * from bluetooth.people";
     if (isset($db)) {
         $statement = $db->query($sql);
-        echo "<h3>Results for $user</h3>";
+        echo "<h3>People:</h3>";
         echo "<div><table>";
         echo "<tr><td>Name</td><td>Person ID</td></tr>";
         while ($row = $statement->fetch()) {
@@ -26,9 +33,6 @@ if (isset($_POST['user'])){
                 ";
         }
     }
-} else {
-    echo "<h1><strong>No users were found, why not make a new one?</strong></h1>";
-}
 ?>
 </body>
 </html>

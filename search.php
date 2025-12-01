@@ -6,6 +6,7 @@ require_once 'db_connect.php';
 <head>
     <meta charset=utf-8>
     <link rel="stylesheet" href="styles.css">
+    <title>Search</title>
 </head>
 <body>
 <h1>Search:</h1>
