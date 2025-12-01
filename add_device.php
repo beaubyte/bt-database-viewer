@@ -22,6 +22,6 @@ require_once 'db_connect.php';
         echo "<h1><strong>No device was specified</strong></h1>";
     }
 ?>
-<p><a href="events.php">return to home</a>
+<p><a href="index.php">return to home</a>
 </body>
 </html>
