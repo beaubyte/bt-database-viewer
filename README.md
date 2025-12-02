@@ -18,3 +18,5 @@ DB_NAME=''
 ```
 After, simply fill each value with the information to point towards your database.
 
+The web page can then be browsed to, in which the data and database can be interacted with.
+
